@@ -7,7 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './containers/App';
 import quotesApp from './reducers';
 import thunk from 'redux-thunk';
-import api from './middleware/api';
 import registerServiceWorker from './registerServiceWorker';
 
 const store = createStore(

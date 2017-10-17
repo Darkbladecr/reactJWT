@@ -39,14 +39,13 @@ app.post('/login', bodyParser.json(), function(req, res) {
 });
 
 // Restricted paths
-// const jwtMiddleware = require('./jwtMiddleware');
-// app.use(jwtMiddleware);
+const jwtMiddleware = require('./jwtMiddleware');
 
-app.get('/', function(req, res) {
+app.get('/', jwtMiddleware, function(req, res) {
 	res.send('Welcome, your token is valid!');
 });
 
-app.get('/secretQuote', function(req, res) {
+app.get('/secretQuote', jwtMiddleware, function(req, res) {
 	const fortune = fortunes[Math.floor(Math.random() * fortunes.length)];
 	res.json(fortune);
 });
